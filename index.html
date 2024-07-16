@@ -21,57 +21,82 @@
       background-position: center;
       min-height: 600px;
     }
+
+    /* Review Slider Styles */
     .review-container {
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch; 
+      position: relative;
+      overflow: hidden;
     }
+
+    .review-track {
+      display: flex;
+      transition: transform 0.3s ease-in-out; 
+    }
+
     .review-card {
-      display: inline-block;
-      width: 350px;
+      flex: 0 0 auto;
+      min-width: 90%; 
       margin-right: 20px;
-      padding: 20px; 
-      word-break: break-word; 
-      /* Fix for text overflow: Add padding to the card itself */
-      box-sizing: content-box; /* Important: Ensures padding is not included in width calculation */
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      word-break: break-word;
     }
+
     .review-text {
       overflow-wrap: break-word; 
     }
-    @media (max-width: 768px) { 
-      .nav-links {
-        flex-direction: column;
-        align-items: center;
-      }
-      .nav-links a {
-        padding: 10px 0;
-      }
+
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 10; 
+    }
+
+    .slider-nav button {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
       .review-card {
-        width: 90%; 
+        min-width: 350px; 
       }
     }
 
-    /* Transparent Menu */
-    header {
-      background-color: transparent; /* Make header background transparent */
+    /* Hide Menu on Scroll */
+    .hide-on-scroll { 
+      transition: transform 0.3s ease-in-out;
+    }
+    .hide-on-scroll.hidden {
+      transform: translateY(-100%); 
     }
   </style>
 </head>
 <body class="bg-gray-100">
 
-  <header class="py-4 px-6 shadow-md fixed w-full z-10"> <div class="container mx-auto flex items-center justify-between">
+  <header class="py-4 px-6 shadow-md fixed w-full z-10 hide-on-scroll"> 
+    <div class="container mx-auto flex items-center justify-between">
       <a href="#home" class="flex items-center">
         <img src="MVlogo.png" alt="Mount V Logo" height="120" width="120"> 
       </a>
       <nav>
         <ul class="flex space-x-6 nav-links">
           <li>
-            <a href="https://www.instagram.com/mountvshop/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-orange-500">
+            <a href="https://www.instagram.com/mountvshop/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-orange-500"> 
               <i class="fab fa-instagram fa-lg"></i> 
             </a>
           </li>
-          <li><a href="#reviews" class="text-gray-600 hover:text-orange-500">REVIEWS</a></li>
-          <li><a href="#visit-us" class="text-gray-600 hover:text-orange-500">VISIT US</a></li>
+          <li><a href="#reviews" class="text-white hover:text-orange-500">REVIEWS</a></li>
+          <li><a href="#visit-us" class="text-white hover:text-orange-500">VISIT US</a></li>
         </ul>
       </nav>
     </div>
@@ -81,19 +106,24 @@
     <div class="container mx-auto">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">WELCOME TO MOUNT V</h1>
       <p class="text-lg md:text-xl mb-8">Your one-stop shop for smoking and vaping needs in Mount Vernon, NY.</p> 
-      <a href="#visit-us" class="inline-block px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-lg">FIND US</a>
+      <a href="#visit-us" class="inline-block px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg">FIND US</a> 
     </div>
   </section>
 
   <section id="about" class="py-12 bg-white">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6 uppercase">ABOUT US</h2>
-      <p class="text-gray-700 leading-relaxed">
-        At Mount V Smoke & Vape Shop, we strive to provide our customers with the best possible shopping experience. 
-        We offer a wide selection of high-quality products at competitive prices, and our friendly and knowledgeable staff 
-        are always happy to help you find what you need. We're committed to creating a welcoming atmosphere for all 
-        our customers, whether you're a seasoned smoker or new to vaping. Come visit us today and see what we're all about!
-      </p>
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8"> 
+      <div class="order-2 md:order-1"> 
+        <h2 class="text-3xl font-bold mb-6 uppercase">ABOUT US</h2>
+        <p class="text-gray-700 leading-relaxed">
+          At Mount V Smoke & Vape Shop, we strive to provide our customers with the best possible shopping experience. 
+          We offer a wide selection of high-quality products at competitive prices, and our friendly and knowledgeable staff 
+          are always happy to help you find what you need. We're committed to creating a welcoming atmosphere for all 
+          our customers, whether you're a seasoned smoker or new to vaping. Come visit us today and see what we're all about!
+        </p>
+      </div>
+      <div class="order-1 md:order-2">
+        <img src="accessories.png" alt="Smoking Accessories" class="w-[400px] h-[400px] rounded-lg shadow-md mx-auto">
+      </div>
     </div>
   </section>
 
@@ -120,78 +150,79 @@
     </div>
   </section>
 
-<section id="reviews" class="py-12 bg-gray-100">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-8 uppercase">CUSTOMER REVIEWS</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> 
-
-        <!-- Review Card 1 -->
-        <div class="review-card bg-white rounded-lg shadow-md p-6">
-          <p class="text-gray-800 font-medium mb-2">Alet Viegas</p>
-          <div class="flex items-center mb-2">
-            <span class="text-yellow-500 mr-1">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
-            </span>
-            <span class="text-gray-600 text-sm">6 months ago</span>
+  <section id="reviews" class="py-12 bg-gray-100">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-8 text-center uppercase">CUSTOMER REVIEWS</h2>
+      <div class="review-container">
+        <div class="review-track" id="review-track">
+          
+          <div class="review-card bg-white rounded-lg shadow-md">
+            <p class="text-gray-800 font-medium mb-2">Davi Oliveira</p>
+            <div class="flex items-center mb-2">
+              <span class="text-yellow-500 mr-1">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i> 
+              </span>
+              <span class="text-gray-600 text-sm">2 days ago</span>
+            </div>
+            <p class="text-gray-700 review-text">"One of the best stores around the city! Very friendly folks over there, I'm always going back to see what they have new in the store, and they always surprise me with the best."</p>
           </div>
-          <p class="text-gray-700 review-text">"Love the customer experience; good guys working behind the scene ensuring quality products for Mt.V"</p>
+
+          <div class="review-card bg-white rounded-lg shadow-md">
+            <p class="text-gray-800 font-medium mb-2">Phrank Malone</p>
+            <div class="flex items-center mb-2">
+              <span class="text-yellow-500 mr-1">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i> 
+              </span>
+              <span class="text-gray-600 text-sm">2 weeks ago</span>
+            </div>
+            <p class="text-gray-700 review-text">"The guys that work here are so nice. Store is clean and they have so much products. Definitely my new home."</p>
+          </div>
+
+          <div class="review-card bg-white rounded-lg shadow-md">
+            <p class="text-gray-800 font-medium mb-2">Brian C</p>
+            <div class="flex items-center mb-2">
+              <span class="text-yellow-500 mr-1">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i> 
+              </span>
+              <span class="text-gray-600 text-sm">4 days ago</span>
+            </div>
+            <p class="text-gray-700 review-text">"Awesome shop! Staff is very helpful and informative, really feels like the staff want to get to know their customers."</p>
+          </div>
+
+          <div class="review-card bg-white rounded-lg shadow-md">
+            <p class="text-gray-800 font-medium mb-2">Jomil Castillo</p>
+            <div class="flex items-center mb-2">
+              <span class="text-yellow-500 mr-1">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i> 
+              </span>
+              <span class="text-gray-600 text-sm">5 days ago</span>
+            </div>
+            <p class="text-gray-700 review-text">"If I could give more stars I would. Love coming here because I feel welcomed, the people are nice and have the best prices. I don’t go anywhere else in 4th Ave :)"</p>
+          </div> 
         </div>
 
-        <!-- Review Card 2 -->
-        <div class="review-card bg-white rounded-lg shadow-md p-6">
-          <p class="text-gray-800 font-medium mb-2">Davi Oliveira</p>
-          <div class="flex items-center mb-2">
-            <span class="text-yellow-500 mr-1">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
-            </span>
-            <span class="text-gray-600 text-sm">2 days ago</span>
-          </div>
-          <p class="text-gray-700 review-text">"One of the best stores around the city! Very friendly folks over there, I'm always going back to see what they have new in the store, and they always surprise me with the best."</p>
+        <div class="slider-nav">
+          <button id="prev-review"><i class="fas fa-chevron-left"></i></button>
+          <button id="next-review"><i class="fas fa-chevron-right"></i></button>
         </div>
-
-        <!-- Review Card 3 -->
-        <div class="review-card bg-white rounded-lg shadow-md p-6">
-          <p class="text-gray-800 font-medium mb-2">Phrank Malone</p>
-          <div class="flex items-center mb-2">
-            <span class="text-yellow-500 mr-1">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
-            </span>
-            <span class="text-gray-600 text-sm">2 weeks ago</span>
-          </div>
-          <p class="text-gray-700 review-text">"The guys that work here are so nice. Store is clean and they have so much products. Definitely my new home."</p>
-        </div>
-
-        <!-- Review Card 4 -->
-        <div class="review-card bg-white rounded-lg shadow-md p-6">
-          <p class="text-gray-800 font-medium mb-2">Brian C</p>
-          <div class="flex items-center mb-2">
-            <span class="text-yellow-500 mr-1">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
-            </span>
-            <span class="text-gray-600 text-sm">4 days ago</span>
-          </div>
-          <p class="text-gray-700 review-text">"Awesome shop! Staff is very helpful and informative, really feels like the staff want to get to know their customers."</p>
-        </div> 
-
-      </div>
-
-      <div class="read-more-reviews mt-8 text-center"> 
+      </div> 
+      <div class="read-more-reviews mt-4 text-center">
         <a href="https://g.page/r/CZ7Um5Bw_EV7EBM/review" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-green-600 hover:bg-gray-700 text-white font-bold rounded-lg">
           READ MORE REVIEWS
         </a>
@@ -234,7 +265,7 @@
 
   <footer class="bg-gray-800 text-white py-6 text-center">
     <div class="container mx-auto">
-      <p>© 2024 Mount V Shop New York. All rights reserved.</p>
+      <p>© 2024 Mount V. All rights reserved.</p>
     </div>
   </footer>
 
@@ -258,6 +289,18 @@
       }
       reviewTrack.style.transform = `translateX(-${scrollAmount}px)`;
     });
+
+    // Hide Menu on Scroll
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.querySelector("header").classList.remove("hidden");
+      } else {
+        document.querySelector("header").classList.add("hidden");
+      }
+      prevScrollpos = currentScrollPos;
+    }
   </script>
 </body>
 </html>
