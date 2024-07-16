@@ -16,7 +16,7 @@
       line-height: 1.6;
     }
     .hero-image {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=2304&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://upload.wikimedia.org/wikipedia/commons/e/ee/Church_at_the_Circle_MV_jeh.JPG'); 
       background-size: cover;
       background-position: center;
       min-height: 600px;
@@ -32,6 +32,8 @@
       margin-right: 20px;
       padding: 20px; 
       word-break: break-word; 
+      /* Fix for text overflow: Add padding to the card itself */
+      box-sizing: content-box; /* Important: Ensures padding is not included in width calculation */
     }
     .review-text {
       overflow-wrap: break-word; 
@@ -48,12 +50,16 @@
         width: 90%; 
       }
     }
+
+    /* Transparent Menu */
+    header {
+      background-color: transparent; /* Make header background transparent */
+    }
   </style>
 </head>
 <body class="bg-gray-100">
 
-  <header class="bg-white py-4 px-6 shadow-md">
-    <div class="container mx-auto flex items-center justify-between">
+  <header class="py-4 px-6 shadow-md fixed w-full z-10"> <div class="container mx-auto flex items-center justify-between">
       <a href="#home" class="flex items-center">
         <img src="MVlogo.png" alt="Mount V Logo" height="120" width="120"> 
       </a>
@@ -101,12 +107,12 @@
           <p class="text-gray-600">Explore Exotic Flavors & Premium Hookahs at Mount V!</p>
         </div>
         <div class="bg-white rounded-lg shadow-md p-6">
-          <img src="accessories.png" alt="High-quality lighters and rolling papers" class="w-full rounded-md mb-4">
+          <img src="geekvape.png" alt="High-quality lighters and rolling papers" class="w-full rounded-md mb-4">
           <h3 class="text-lg font-bold text-gray-800 mb-2">Elevate Your Smoking Experience</h3>
           <p class="text-gray-600">Premium Smoking Accessories & Friendly Expertise at Mount V!</p>
         </div>
         <div class="bg-white rounded-lg shadow-md p-6">
-          <img src="openlate.png" alt="Open late sign with smoke shop in the background" class="w-full rounded-md mb-4">
+          <img src="open-late.png" alt="Open late sign with smoke shop in the background" class="w-full rounded-md mb-4">
           <h3 class="text-lg font-bold text-gray-800 mb-2">Open Late & Convenient</h3>
           <p class="text-gray-600">Mount V, Your One-Stop Smoke Shop (Open 7 days: 9 AM to 10 PM). Free Delivery over $50 (within 5 miles)!</p> 
         </div> 
@@ -119,8 +125,24 @@
       <h2 class="text-3xl font-bold mb-8 text-center uppercase">CUSTOMER REVIEWS</h2>
       <div class="review-container"> 
         <div class="review-track" id="review-track">
-    
 
+          <!-- Review Card 1 -->
+          <div class="review-card bg-white rounded-lg shadow-md">
+            <p class="text-gray-800 font-medium mb-2">Alet Viegas</p>
+            <div class="flex items-center mb-2">
+              <span class="text-yellow-500 mr-1">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i> 
+              </span>
+              <span class="text-gray-600 text-sm">6 months ago</span>
+            </div>
+            <p class="text-gray-700 review-text">"Love the customer experience; good guys working behind the scene ensuring quality products for Mt.V"</p>
+          </div>
+
+          <!-- Review Card 2 -->
           <div class="review-card bg-white rounded-lg shadow-md">
             <p class="text-gray-800 font-medium mb-2">Davi Oliveira</p>
             <div class="flex items-center mb-2">
@@ -136,6 +158,7 @@
             <p class="text-gray-700 review-text">"One of the best stores around the city! Very friendly folks over there, I'm always going back to see what they have new in the store, and they always surprise me with the best."</p>
           </div>
 
+          <!-- Review Card 3 -->
           <div class="review-card bg-white rounded-lg shadow-md">
             <p class="text-gray-800 font-medium mb-2">Phrank Malone</p>
             <div class="flex items-center mb-2">
@@ -151,290 +174,8 @@
             <p class="text-gray-700 review-text">"The guys that work here are so nice. Store is clean and they have so much products. Definitely my new home."</p>
           </div>
 
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Brian C</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">4 days ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Awesome shop! Staff is very helpful and informative, really feels like the staff want to get to know their customers."</p>
-          </div>
-          
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Jomil Castillo</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">5 days ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"If I could give more stars I would. Love coming here because I feel welcomed, the people are nice and have the best prices. I don’t go anywhere else in 4th Ave :)"</p>
-          </div>
+          <!-- Add more review cards here, following the same pattern --> 
 
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Jairo Caztillo</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">5 days ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Honestly, the store smells great and the staff is very friendly. Will definitely return. Thank you guys"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Igor Santana</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">3 days ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Great store, excellent customer service and high quality products!"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Mayara Oliveira</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">2 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Amazing place, amazing staff! Friendly always! They have what I need and I send all my friends here! Highly recommend"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Dominique Guirand</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">2 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"I loved the customer service … it gave me a home welcoming feeling . The prices are fair & realistic. I’m definitely going to make this my home away from home."</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Rich Nguyen</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">a week ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Excellent customer service. Always looking out for the folks of the community."</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">mark karak</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">6 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Very clean organized professional store 👍🏻 The best customers service in M.Vernon 👍🏻the highest level of knowledge and experience 👍🏻"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">caio basso</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">5 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"The best smoke shop in Mount Vernon, amazing customer service, best prices, great variety, fast delivery, highly recommend!"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Gabrielly Koeler da Costa</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">6 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Best Smoke Shop in town, The store is wonderful, lots of variety, well organized, and the customer service is excellent. Highly recommend"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Nofal Majdi</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">6 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"This smoke shop store is a solid choice with a wide range of products and helpful staff – a reliable spot for your smoking needs"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Otavio Ipad</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">6 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Very good costumer experience, great quality products highly recommended ‼️"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Mohamed M. Kamara</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">2 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Good smoke show and good vibes about the customer."</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Khalil Daniels</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">a month ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Top Quality Products, Tito hooked me up"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">topher</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">3 days ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Best shop in mount v⭐️⭐️⭐️⭐️⭐️"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Drift De Ball</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">3 weeks ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"My guy Ricky and the guys got me right with the GAS!!!!"</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Matheus Da silva</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">5 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text">"Anything you need they have, great people."</p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Claron</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">2 days ago</span>
-            </div>
-            <p class="text-gray-700 review-text"></p>
-          </div>
-
-          <div class="review-card bg-white rounded-lg shadow-md">
-            <p class="text-gray-800 font-medium mb-2">Nick Jay</p>
-            <div class="flex items-center mb-2">
-              <span class="text-yellow-500 mr-1">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i> 
-              </span>
-              <span class="text-gray-600 text-sm">2 months ago</span>
-            </div>
-            <p class="text-gray-700 review-text"></p>
-          </div>
         </div>
         <div class="slider-nav">
           <button id="prev-review"><i class="fas fa-chevron-left"></i></button>
@@ -484,7 +225,7 @@
 
   <footer class="bg-gray-800 text-white py-6 text-center">
     <div class="container mx-auto">
-      <p>© 2024 Mount V Convenience Store. All rights reserved.</p>
+      <p>© 2024 Mount V Shop New York. All rights reserved.</p>
     </div>
   </footer>
 
@@ -497,12 +238,12 @@
     let scrollAmount = 0;
 
     nextButton.addEventListener('click', () => {
-      scrollAmount += 370; // Adjust this value based on your card width + margin
+      scrollAmount += 370; // Adjust if needed based on card width + margin
       reviewTrack.style.transform = `translateX(-${scrollAmount}px)`;
     });
 
     prevButton.addEventListener('click', () => {
-      scrollAmount -= 370; // Adjust this value based on your card width + margin
+      scrollAmount -= 370; // Adjust if needed based on card width + margin
       if (scrollAmount < 0) {
         scrollAmount = 0;
       }
